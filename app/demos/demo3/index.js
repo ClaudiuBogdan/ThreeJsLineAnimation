@@ -13,7 +13,7 @@ import HandleCameraOrbit from 'decorators/HandleCameraOrbit';
 import FullScreenInBackground from 'decorators/FullScreenInBackground';
 import ColorBlend from 'color-blend';
 import {SoundToColor, getBlendedColor} from "./MusicColors";
-import {musicInterval, musicIntensity} from "./MusicIntervals";
+import {musicInterval, musicIntensity, musicPitchArray} from "./MusicIntervals";
 
 import app from 'App';
 
@@ -130,7 +130,7 @@ class CustomLineGenerator extends LineGenerator {
         0.3,
         getRandomFloat(-1, 1),
       ),
-      color: getBlendedColor({pichArray: null}),
+      color: getBlendedColor(params.pichArray),
     });
     line.rotation.x = getRandomFloat(0, Math.PI * 2);   
   }
@@ -147,7 +147,7 @@ const changeLineBehaviour = () => {
     setTimeout( () => {
       indexInteval++
       lineGenerator.isGeneratorActive = !lineGenerator.isGeneratorActive;
-      lineGenerator.addCustomLine({intensity: Math.abs(musicIntensity[indexInteval - 1])});
+      lineGenerator.addCustomLine({intensity: Math.abs(musicIntensity[indexInteval - 1]), pichArray: musicPitchArray[indexInteval - 1]});
       
       changeLineBehaviour();
       console.log("index: ", indexInteval);
