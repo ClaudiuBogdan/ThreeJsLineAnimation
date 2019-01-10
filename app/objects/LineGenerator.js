@@ -62,7 +62,8 @@ export default class LineGenerator extends Object3D {
    */
   update() {
     // Add lines randomly
-    if (this.isStarted && Math.random() < this.frequency) this.addLine();
+    //if (this.isStarted && Math.random() < this.frequency) this.addLine();
+    //if(this.isGeneratorActive) this.addLine();
 
     // Update current Lines
     for (this.i = this.nbrOfLines; this.i >= 0; this.i--) {
